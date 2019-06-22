@@ -35,10 +35,11 @@ public class Generation {
 		
 		currentGen = newGen;
 		
-		System.out.println("Done");
+		/*System.out.println("Done");
 		for(int j = 0; j < currentGen.length - 1; j++) {
 			System.out.println(currentGen[j].getFitness());
 		}
+		*/
 	}
 	
 	
@@ -48,11 +49,45 @@ public class Generation {
 	public static int getBestWidth() {
 		return currentGen[0].getWidth();
 	}
-	
+	public static int getBestFitness() {
+		return currentGen[0].getFitness();
+	}
+	public static int getBestName() {
+		return currentGen[0].getName();
+	}
 	public static int getWorstLength() {
 		return currentGen[currentGen.length/3 - 1].getLength();
 	}
 	public static int getWorstWidth() {
 		return currentGen[currentGen.length/3 - 1].getWidth();
+	}
+	public static int getWorstFitness() {
+		return currentGen[currentGen.length/3-1].getFitness();
+	}
+	public static int getWorstName() {
+		return currentGen[currentGen.length/3-1].getName();
+	}
+	public static int getAverageWidth() {
+		int sum = 0, i;
+		for(i=0; i<currentGen.length; i++) {
+			sum+=currentGen[i].getWidth();
+		}
+		return sum/i;
+	}
+	
+	public static int getAverageLength() {
+		int sum = 0, i;
+		for(i=0; i<currentGen.length; i++) {
+			sum+=currentGen[i].getLength();
+		}
+		return sum/i;
+	}
+	
+	public static int getAverageFitness() {
+		int sum = 0, i;
+		for(i=0; i<currentGen.length; i++) {
+			sum+=currentGen[i].getFitness();
+		}
+		return sum/i;
 	}
 }
